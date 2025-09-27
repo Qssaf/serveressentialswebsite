@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Support — ServerEssentials</title>
+  <meta name="description" content="Get help, contact support, or join the community for ServerEssentials" />
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <style>
+    :root {
+      --bg: #0e0e11;
+      --fg: #f5f5f5;
+      --muted: #aaa;
+      --accent: #3b82f6;
+      --card: #1a1a1f;
+      --radius: 12px;
+      --shadow: rgba(0,0,0,0.5);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--fg); line-height:1.6; }
+    a { color: var(--accent); text-decoration:none; transition: color 0.2s; }
+    a:hover { color: #60a5fa; }
+    .site { display:flex; flex-direction:column; min-height:100vh; }
+    header { background:#141418; padding:1rem 2rem; border-bottom:1px solid #222; }
+    .header-inner { max-width:1100px; margin:auto; display:flex; justify-content:space-between; align-items:center; }
+    .brand { display:flex; gap:.75rem; align-items:center; }
+    .logo { background:var(--accent); color:white; font-weight:bold; font-size:1.1rem; width:2.2rem; height:2.2rem; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+    .brand h1 { font-size:1.2rem; }
+    .brand .small { font-size:.8rem; color: var(--muted); }
+    nav a { margin-left:1.5rem; font-weight:500; }
+    nav a.active { color:white; border-bottom:2px solid var(--accent); padding-bottom:2px; }
+    main { flex:1; }
+    .hero { background: linear-gradient(135deg,#3b82f6,#2563eb,#111); color:white; text-align:center; padding:4rem 2rem; clip-path: polygon(0 0,100% 0,100% 80%,0 100%); }
+    .hero h2 { font-size:2.2rem; margin-bottom:1rem; }
+    .hero p { color:#cbd5e1; font-size:1.1rem; }
+    .section { max-width:1100px; margin:3rem auto; padding:0 2rem; }
+    .cards { display:grid; gap:1.5rem; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); }
+    .card { background: var(--card); padding:1.5rem; border-radius: var(--radius); box-shadow:0 5px 15px var(--shadow); transition: transform .2s, box-shadow .2s; }
+    .card:hover { transform:translateY(-5px); box-shadow:0 10px 20px var(--shadow); }
+    .card h3 { margin-bottom:.5rem; }
+    .card p { color: var(--muted); }
+    form { background:var(--card); padding:2rem; border-radius:var(--radius); box-shadow:0 5px 15px var(--shadow); max-width:600px; margin:auto; }
+    form h3 { margin-bottom:1rem; }
+    form input, form textarea { width:100%; padding:.8rem 1rem; margin-bottom:1rem; border:none; border-radius:var(--radius); background:#222; color:white; font-size:1rem; }
+    form button { padding:.8rem 1.5rem; background:var(--accent); border:none; border-radius:var(--radius); color:white; font-weight:600; cursor:pointer; transition: background .2s; }
+    form button:hover { background:#2563eb; }
+    footer { background:#141418; text-align:center; padding:1rem; font-size:.9rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="site">
+    <header>
+      <div class="header-inner">
+        <div class="brand">
+          <div class="logo">SE</div>
+          <div>
+            <h1>ServerEssentials</h1>
+            <div class="small">Open-source Minecraft essentials</div>
+          </div>
+        </div>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="features.html">Features</a>
+          <a href="install.html">Install</a>
+          <a href="docs.html">Docs</a>
+          <a href="support.html" class="active">Support</a>
+          <a href="about.html">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h2>Need Help or Want to Connect?</h2>
+        <p>ServerEssentials Support is here for you — FAQs, community help, or direct messages to our team. Let's keep your server running smoothly!</p>
+      </section>
+
+      <section class="section">
+        <h3>Contact Form (Google Login Required)</h3>
+
+        <!-- Google login -->
+        <div id="g_id_onload"
+             data-client_id="YOUR_GOOGLE_CLIENT_ID"
+             data-callback="onGoogleLogin">
+        </div>
+        <div class="g_id_signin" data-type="standard"></div>
+
+        <form id="contactForm">
+          <h3>Get in Touch</h3>
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea name="message" rows="5" placeholder="Message..." required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      © 2025 ServerEssentials — Open source. Built with ❤️
+    </footer>
+  </div>
+
+  <script>
+    let googleUser = null;
+
+    function onGoogleLogin(response) {
+      googleUser = parseJwt(response.credential);
+      alert("Logged in as " + googleUser.email);
+    }
+
+    function parseJwt(token) {
+      const base64Url = token.split('.')[1];
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      const jsonPayload = decodeURIComponent(atob(base64).split('').map(c =>
+        '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+      ).join(''));
+      return JSON.parse(jsonPayload);
+    }
+
+    document.getElementById("contactForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      if (!googleUser) {
+        alert("⚠️ Please log in with Google first.");
+        return;
+      }
+
+      const data = {
+        from: googleUser.email,
+        name: this.name.value,
+        email: this.email.value,
+        message: this.message.value
+      };
+
+      const res = await fetch("/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+
+      const result = await res.json();
+      alert(result.success ? "✅ Email sent!" : "❌ Failed to send email");
+    });
+  </script>
+</body>
+</html>
+
+

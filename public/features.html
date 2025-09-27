@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Features — ServerEssentials</title>
+  <meta name="description" content="ServerEssentials — Plugin Features" />
+  <style>
+    :root {
+      --bg: #0e0e11;
+      --fg: #f5f5f5;
+      --muted: #aaa;
+      --accent: #3b82f6;
+      --card: #1a1a1f;
+      --radius: 12px;
+      --shadow: rgba(0,0,0,0.5);
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height:1.6;
+    }
+
+    a { color: var(--accent); text-decoration:none; transition:.2s; }
+    a:hover { color:#60a5fa; }
+
+    .site { display:flex; flex-direction:column; min-height:100vh; }
+
+    header {
+      background:#141418;
+      padding:1rem 2rem;
+      border-bottom:1px solid #222;
+    }
+    .header-inner {
+      max-width:1100px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .brand { display:flex; gap:.75rem; align-items:center; }
+    .logo { background:var(--accent); color:white; font-weight:bold; font-size:1.1rem; width:2.2rem; height:2.2rem; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+    .brand h1 { font-size:1.2rem; }
+    .brand .small { font-size:.8rem; color: var(--muted); }
+    nav a { margin-left:1.5rem; font-weight:500; }
+    nav a.active { color:white; border-bottom:2px solid var(--accent); padding-bottom:2px; }
+
+    main { flex:1; max-width:1100px; margin:2rem auto; padding:0 2rem; }
+
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; margin-bottom:2rem; }
+    .card {
+      background: var(--card);
+      padding:1.5rem;
+      border-radius:var(--radius);
+      box-shadow:0 5px 15px var(--shadow);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .card:hover { transform:translateY(-5px); box-shadow:0 10px 20px var(--shadow); }
+
+    h3 { margin-bottom:.75rem; }
+
+    .small { font-size:0.9rem; color:var(--muted); }
+    .muted { color:var(--muted); }
+
+    .features { display:grid; gap:1rem; }
+    .feature-item { display:flex; gap:0.75rem; align-items:flex-start; }
+    .feature-item .icon {
+      font-size:2rem;
+      flex-shrink:0;
+      background:#222;
+      padding:.5rem;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    /* Tags for features */
+    .tag { display:inline-block; border-radius:5px; padding:2px 6px; margin:2px 4px 2px 0; font-size:12px; font-weight:500; background:#333; color:#fff; }
+
+    footer {
+      text-align:center;
+      padding:1rem;
+      background:#141418;
+      color:var(--muted);
+      margin-top:2rem;
+    }
+
+    @media(max-width:700px){ nav a{ margin-left:1rem; } }
+  </style>
+</head>
+<body>
+  <div class="site">
+    <header>
+      <div class="header-inner">
+        <div class="brand">
+          <div class="logo">SE</div>
+          <div>
+            <h1>ServerEssentials</h1>
+            <div class="small">Open-source Minecraft essentials</div>
+          </div>
+        </div>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="features.html" class="active">Features</a>
+          <a href="install.html">Install</a>
+          <a href="docs.html">Docs</a>
+          <a href="support.html">Support</a>
+          <a href="about.html">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="grid">
+        <div class="card">
+          <h3>Core Features</h3>
+          <ul class="small">
+            <li>Full Economy System (Vault integration)</li>
+            <li>Dynamic per-world Scoreboards & Tablist</li>
+            <li>20+ Admin Commands: vanish, ban, mute, maintenance mode</li>
+            <li>QoL commands: spawn, rtp, warp, home, shop</li>
+            <li>Fully configurable messages, permissions & per-world rules</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Customization</h3>
+          <p class="muted">Edit plugin behavior, messages, commands, ranks, and per-world rules via configuration files. Example: customize economy settings, scoreboards, or chat formatting.</p>
+        </div>
+
+        <div class="card">
+          <h3>Integrations</h3>
+          <p class="muted">Works seamlessly with bStats for metrics, Vault, LuckPerms, PlaceholderAPI, and most economy/permissions plugins.</p>
+        </div>
+
+        <div class="card">
+          <h3>Chat & Social</h3>
+          <p class="muted">Colorful chat formatting, nickname support, faction chat, global/local channels, and integration with external chat plugins.</p>
+        </div>
+
+        <div class="card">
+          <h3>Advanced Admin Tools</h3>
+          <p class="muted">Teleportation, vanish, logs, warnings, maintenance mode, and detailed player info commands.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Feature Examples</h3>
+        <div class="features">
+          <div class="feature-item">
+            <div class="icon">💸</div>
+            <div>
+              <strong>Economy</strong>
+              <div class="muted">Vault-powered balances, shops, player trading, and currency management.</div>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="icon">📊</div>
+            <div>
+              <strong>Scoreboards</strong>
+              <div class="muted">Dynamic, per-world scoreboards with placeholders via PlaceholderAPI.</div>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="icon">🛠️</div>
+            <div>
+              <strong>Admin Tools</strong>
+              <div class="muted">Vanish, kick, ban, mute, logs, maintenance mode, teleportation, and more.</div>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="icon">⚙️</div>
+            <div>
+              <strong>Configuration</strong>
+              <div class="muted">Custom messages, commands, permissions, per-world rules, and plugin behavior.</div>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="icon">💬</div>
+            <div>
+              <strong>Chat Management</strong>
+              <div class="muted">Chat formatting, nicknames, channels, and integration with chat plugins.</div>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="icon">🧩</div>
+            <div>
+              <strong>Modules & Extensibility</strong>
+              <div class="muted">Add or remove modules for world-specific features, QoL commands, or admin tools.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      © 2025 ServerEssentials — Open source. Built with ❤️
+    </footer>
+  </div>
+</body>
+</html>
+
+

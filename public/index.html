@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ServerEssentials — Home</title>
+  <meta name="description" content="ServerEssentials — Open-source Minecraft essentials plugin" />
+  <style>
+    :root {
+      --bg: #0e0e11;
+      --fg: #f5f5f5;
+      --muted: #aaa;
+      --accent: #3b82f6;
+      --card: #1a1a1f;
+      --radius: 12px;
+    }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+a:hover { color: #60a5fa; }
+
+.site {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background: #141418;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #222;
+}
+.header-inner {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+.logo {
+  background: var(--accent);
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.brand h1 {
+  font-size: 1.2rem;
+}
+.brand .small {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+nav a {
+  margin-left: 1.5rem;
+  font-weight: 500;
+}
+nav a.active {
+  color: white;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 2px;
+}
+
+main {
+  flex: 1;
+}
+
+.hero {
+  background: linear-gradient(to right, #111, #191924);
+  padding: 3rem 2rem;
+}
+.hero-content {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.hero-left {
+  flex: 1 1 400px;
+}
+.hero-left h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.hero-left p {
+  margin-bottom: 1.5rem;
+  color: var(--muted);
+}
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+}
+.btn, .ghost {
+  padding: 0.7rem 1.4rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.btn {
+  background: var(--accent);
+  color: white;
+}
+.btn:hover { background: #2563eb; }
+.ghost {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+.ghost:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.hero-stats-card {
+  flex: 1 1 300px;
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  text-align: center;
+}
+.hero-stats-card h3 {
+  margin-bottom: 0.5rem;
+}
+.hero-stats-card .muted {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  color: var(--muted);
+}
+.hero-stats-card img {
+  max-width: 100%;
+  border-radius: var(--radius);
+}
+.hero-stats-card .note {
+  margin-top: 0.8rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.why-choose {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  max-width: 1100px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+.card {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+}
+.card h3 { margin-bottom: 0.5rem; }
+.card .muted { color: var(--muted); }
+
+.features-preview {
+  max-width: 1100px;
+  margin: 2rem auto 4rem;
+  padding: 0 2rem;
+}
+.features-preview h3 {
+  margin-bottom: 1rem;
+}
+.features-preview ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  color: var(--muted);
+}
+
+footer {
+  background: #141418;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+@media (max-width: 700px) {
+  nav a {
+    margin-left: 1rem;
+  }
+  .hero-content {
+    flex-direction: column;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="site">
+    <header>
+      <div class="header-inner">
+        <div class="brand">
+          <div class="logo">SE</div>
+          <div>
+            <h1>ServerEssentials</h1>
+            <div class="small">Open-source Minecraft essentials</div>
+          </div>
+        </div>
+        <nav>
+          <a href="index.html" class="active">Home</a>
+          <a href="features.html">Features</a>
+          <a href="install.html">Install</a>
+          <a href="docs.html">Docs</a>
+          <a href="support.html">Support</a>
+        </nav>
+      </div>
+    </header>
+
+<main>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-left">
+        <h2>Welcome to ServerEssentials</h2>
+        <p>Lightweight, configurable, and open-source. Full economy, scoreboard, QoL commands, admin tools, and more.</p>
+        <div class="hero-cta">
+          <a class="btn" href="install.html">Download</a>
+          <a class="ghost" href="about.html">Learn More</a>
+        </div>
+      </div>
+      <div class="hero-stats-card">
+        <h3>Statistics</h3>
+        <div class="muted">Servers / Players</div>
+        <img src="https://bstats.org/signatures/bukkit/ServerEssentials%20v2.svg" alt="ServerEssentials Stats" />
+        <div class="note">Live stats from bStats</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-choose">
+    <div class="card">
+      <h3>Why choose ServerEssentials?</h3>
+      <p class="muted">We provide a modular, efficient, and fully configurable plugin. Active community, per-world support, high performance.</p>
+    </div>
+    <div class="card deps">
+      <h3>Dependencies</h3>
+      <div class="muted">Vault | LuckPerms | PlaceholderAPI</div>
+    </div>
+  </section>
+
+  <section class="features-preview">
+    <h3>Key Features</h3>
+    <ul>
+      <li>Economy & shop system</li>
+      <li>Scoreboard & tablist support</li>
+      <li>World-specific settings</li>
+      <li>Admin tools: teleportation, vanish, logs, etc.</li>
+      <li>Chat formatting, factions, homes, warps</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  © 2025 ServerEssentials — Open source. Built with ❤️
+</footer>
+
+
+  </div>
+</body>
+</html>
+
+

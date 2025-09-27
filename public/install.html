@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Install — ServerEssentials</title>
+  <meta name="description" content="ServerEssentials — Installation Guide" />
+  <style>
+    :root {
+      --bg: #0e0e11;
+      --fg: #f5f5f5;
+      --muted: #aaa;
+      --accent: #3b82f6;
+      --card: #1a1a1f;
+      --radius: 12px;
+      --shadow: rgba(0,0,0,0.5);
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); text-decoration:none; transition: 0.2s; }
+    a:hover { color: #60a5fa; }
+
+    .site { display:flex; flex-direction:column; min-height:100vh; }
+
+    header {
+      background:#141418;
+      padding:1rem 2rem;
+      border-bottom:1px solid #222;
+    }
+    .header-inner { max-width:1100px; margin:auto; display:flex; justify-content:space-between; align-items:center; }
+    .brand { display:flex; gap:.75rem; align-items:center; }
+    .logo { background:var(--accent); color:white; font-weight:bold; font-size:1.1rem; width:2.2rem; height:2.2rem; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+    .brand h1 { font-size:1.2rem; }
+    .brand .small { font-size:.8rem; color: var(--muted); }
+    nav a { margin-left:1.5rem; font-weight:500; }
+    nav a.active { color:white; border-bottom:2px solid var(--accent); padding-bottom:2px; }
+
+    main { flex:1; }
+
+    .hero {
+      background: linear-gradient(135deg,#3b82f6,#2563eb,#111);
+      text-align:center;
+      padding:4rem 2rem;
+      border-radius: var(--radius);
+      margin:2rem auto;
+      max-width:1100px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:url('https://i.postimg.cc/NFkxTDW8/MC-Banner.jpg') center/cover no-repeat;
+      filter: blur(4px) brightness(0.5);
+      z-index:0;
+    }
+    .hero h2, .hero p { position:relative; z-index:1; }
+    .hero h2 { font-size:2.4rem; margin-bottom:1rem; }
+    .hero p { font-size:1.2rem; color:#ddd; }
+
+    .section { max-width:1100px; margin:2rem auto; padding:0 2rem; }
+
+    .cards { display:grid; gap:1.5rem; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); }
+
+    .card {
+      background: var(--card);
+      padding:1.5rem;
+      border-radius: var(--radius);
+      box-shadow:0 5px 15px var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover { transform:translateY(-5px); box-shadow:0 10px 20px var(--shadow); }
+
+    h3 { margin-bottom:1rem; }
+
+    .filters {
+      display:flex;
+      gap:12px;
+      margin-bottom:20px;
+      flex-wrap:wrap;
+    }
+    label { font-weight:500; font-size:14px; display:flex; flex-direction:column; gap:4px; }
+    select { padding:8px 12px; border-radius:8px; border:1px solid #333; background:#1a1a1f; color:white; }
+
+    table.version-list {
+      border-collapse:collapse;
+      width:100%;
+      margin-top:10px;
+      border-radius:10px;
+      overflow:hidden;
+    }
+    .version-list th, .version-list td { padding:12px; border-bottom:1px solid #333; }
+    .version-list th { background:#1a1a1f; text-align:left; }
+    .version-list tr:nth-child(even) { background:#141418; }
+    .version-list tr:hover { background:#222; }
+    .tag { display:inline-block; border-radius:5px; padding:3px 7px; margin:2px 4px 2px 0; font-size:12px; font-weight:500; }
+    .tag.release { background:#1b8a4b; color:#e6f9ee; }
+    .tag.beta { background:#d17700; color:#fff4e5; }
+    .tag.alpha { background:#c62828; color:#fde8e8; }
+
+    a.download {
+      display:inline-flex; align-items:center; gap:6px; color:#3b82f6; font-weight:bold; transition:.2s;
+    }
+    a.download:hover { color:#60a5fa; }
+
+    /* Installation guide tabs */
+    .tabs {
+      display:flex;
+      gap:1rem;
+      margin-bottom:1rem;
+      flex-wrap:wrap;
+    }
+    .tabs button {
+      padding:.6rem 1rem;
+      border:none;
+      border-radius:var(--radius);
+      cursor:pointer;
+      background:#1a1a1f;
+      color:white;
+      transition: background .2s;
+    }
+    .tabs button.active { background:var(--accent); color:white; }
+    .tab-content { display:none; background:#1a1a1f; padding:1rem 1.5rem; border-radius:var(--radius); box-shadow:0 5px 15px var(--shadow); }
+    .tab-content.active { display:block; }
+
+    footer { text-align:center; padding:1rem; color: var(--muted); margin-top:2rem; }
+
+    @media(max-width:700px) { nav a{ margin-left:1rem; } }
+  </style>
+</head>
+<body>
+  <div class="site">
+    <header>
+      <div class="header-inner">
+        <div class="brand">
+          <div class="logo">SE</div>
+          <div>
+            <h1>ServerEssentials</h1>
+            <div class="small">Open-source Minecraft essentials</div>
+          </div>
+        </div>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="features.html">Features</a>
+          <a href="install.html" class="active">Install</a>
+          <a href="docs.html">Docs</a>
+          <a href="support.html">Support</a>
+          <a href="about.html">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h2>Install ServerEssentials</h2>
+        <p>Download the right version for your Minecraft server and follow our easy guide.</p>
+      </section>
+
+      <section class="section card">
+        <h3>Download & Version Selection</h3>
+
+        <div class="filters">
+          <label>
+            Minecraft version:
+            <select id="filter-mc">
+              <option value="">All</option>
+            </select>
+          </label>
+          <label>
+            Release type:
+            <select id="filter-type">
+              <option value="">All</option>
+              <option value="release">Release</option>
+              <option value="beta">Beta</option>
+              <option value="alpha">Alpha</option>
+            </select>
+          </label>
+        </div>
+
+        <table class="version-list" id="version-table">
+          <thead>
+            <tr>
+              <th>Version</th>
+              <th>Minecraft Versions</th>
+              <th>Type</th>
+              <th>Download</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <section class="section card">
+        <h3>Installation Guide</h3>
+        <div class="tabs">
+          <button class="active" data-tab="windows">Windows</button>
+          <button data-tab="linux">Linux</button>
+          <button data-tab="mac">Mac</button>
+        </div>
+        <div class="tab-content active" id="windows">
+          <ol>
+            <li>Download the ServerEssentials .jar file from above.</li>
+            <li>Place it in your server's plugins folder.</li>
+            <li>Start the server once to generate config files.</li>
+            <li>Edit <code>config.yml</code> as needed.</li>
+            <li>Restart the server and enjoy!</li>
+          </ol>
+        </div>
+        <div class="tab-content" id="linux">
+          <ol>
+            <li>Use wget or curl to download the .jar file to your server folder.</li>
+            <li>Move it to <code>plugins/</code>.</li>
+            <li>Ensure proper permissions: <code>chmod 755 ServerEssentials.jar</code></li>
+            <li>Start the server once to generate configs.</li>
+            <li>Modify <code>config.yml</code> and restart the server.</li>
+          </ol>
+        </div>
+        <div class="tab-content" id="mac">
+          <ol>
+            <li>Download the .jar file.</li>
+            <li>Drag it into your server's plugins folder.</li>
+            <li>Launch the server to generate configs.</li>
+            <li>Adjust if needed.</li>
+            <li>Restart the server.</li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <footer>© 2025 ServerEssentials — Open source. Built with ❤️</footer>
+  </div>
+
+  <script>
+    // Version fetching
+    const apiUrl = "https://api.modrinth.com/v2/project/K7HZMVgx/version";
+    const tableBody = document.querySelector("#version-table tbody");
+    const filterMc = document.querySelector("#filter-mc");
+    const filterType = document.querySelector("#filter-type");
+    let allVersions = [];
+
+    async function loadVersions() {
+      const res = await fetch(apiUrl);
+      const data = await res.json();
+      allVersions = data;
+      populateFilters();
+      renderTable();
+    }
+
+    function populateFilters() {
+      const mcSet = new Set();
+      allVersions.forEach(v => v.game_versions.forEach(g => mcSet.add(g)));
+      [...mcSet].sort().forEach(ver => {
+        const opt = document.createElement("option");
+        opt.value = ver;
+        opt.textContent = ver;
+        filterMc.appendChild(opt);
+      });
+    }
+
+    function renderTable() {
+      const mcFilter = filterMc.value;
+      const typeFilter = filterType.value;
+      tableBody.innerHTML = "";
+
+      allVersions
+        .filter(v => !mcFilter || v.game_versions.includes(mcFilter))
+        .filter(v => !typeFilter || v.version_type === typeFilter)
+        .forEach(v => {
+          const row = document.createElement("tr");
+          const file = v.files[0];
+          row.innerHTML = `
+            <td><strong>${v.name}</strong></td>
+            <td>${v.game_versions.map(g => `<span class="tag">${g}</span>`).join(" ")}</td>
+            <td><span class="tag ${v.version_type}">${v.version_type}</span></td>
+            <td><a class="download" href="${file.url}" target="_blank">⬇ Download</a></td>
+          `;
+          tableBody.appendChild(row);
+        });
+    }
+
+    filterMc.addEventListener("change", renderTable);
+    filterType.addEventListener("change", renderTable);
+
+    loadVersions();
+
+    // Tabs functionality
+    const tabs = document.querySelectorAll('.tabs button');
+    const tabContents = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const target = tab.dataset.tab;
+        tabContents.forEach(tc => tc.classList.remove('active'));
+        document.getElementById(target).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
+

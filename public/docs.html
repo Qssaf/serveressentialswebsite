@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Docs — ServerEssentials Permissions</title>
+  <meta name="description" content="ServerEssentials — Permissions Documentation" />
+  <style>
+    :root {
+      --bg: #0e0e11;
+      --fg: #f5f5f5;
+      --muted: #aaa;
+      --accent: #3b82f6;
+      --card: #1a1a1f;
+      --radius: 12px;
+      --shadow: rgba(0,0,0,0.5);
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height:1.6;
+    }
+    a { color: var(--accent); text-decoration:none; transition:.2s; }
+    a:hover { color:#60a5fa; }
+
+    .site { display:flex; flex-direction:column; min-height:100vh; }
+
+    header {
+      background:#141418;
+      padding:1rem 2rem;
+      border-bottom:1px solid #222;
+    }
+    .header-inner { max-width:1100px; margin:auto; display:flex; justify-content:space-between; align-items:center; }
+    .brand { display:flex; gap:.75rem; align-items:center; }
+    .logo { background:var(--accent); color:white; font-weight:bold; font-size:1.1rem; width:2.2rem; height:2.2rem; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+    .brand h1 { font-size:1.2rem; }
+    .brand .small { font-size:.8rem; color: var(--muted); }
+    nav a { margin-left:1.5rem; font-weight:500; }
+    nav a.active { color:white; border-bottom:2px solid var(--accent); padding-bottom:2px; }
+
+    main { flex:1; max-width:1100px; margin:2rem auto; padding:0 2rem; }
+
+    .hero {
+      background: linear-gradient(135deg,#3b82f6,#2563eb,#111);
+      text-align:center;
+      padding:3rem 2rem;
+      border-radius: var(--radius);
+      margin-bottom:2rem;
+      color:white;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero h2 { font-size:2rem; margin-bottom:.5rem; }
+    .hero p { font-size:1.1rem; color:#cbd5e1; }
+
+    .card {
+      background: var(--card);
+      padding:1.5rem;
+      border-radius: var(--radius);
+      box-shadow:0 5px 15px var(--shadow);
+      margin-bottom:2rem;
+    }
+
+    input[type="text"] {
+      width:100%;
+      padding:.8rem 1rem;
+      margin-bottom:1rem;
+      border:none;
+      border-radius:var(--radius);
+      background:#1a1a1f;
+      color:white;
+      font-size:1rem;
+    }
+
+    table {
+      width:100%;
+      border-collapse:collapse;
+      overflow:hidden;
+      border-radius:var(--radius);
+    }
+    th, td {
+      padding:.75rem 1rem;
+      text-align:left;
+      border-bottom:1px solid #333;
+    }
+    th { background:#1a1a1f; }
+    tr:nth-child(even){ background:#141418; }
+    tr:hover { background:#222; }
+
+    .muted { color:var(--muted); font-size:.9rem; }
+
+    .copy-btn {
+      background:var(--accent);
+      color:white;
+      border:none;
+      border-radius:6px;
+      padding:.25rem .5rem;
+      font-size:.8rem;
+      cursor:pointer;
+      margin-left:.5rem;
+      transition:.2s;
+    }
+    .copy-btn:hover { background:#60a5fa; }
+
+    footer { text-align:center; padding:1rem; color: var(--muted); background:#141418; margin-top:2rem; }
+
+    @media(max-width:700px){ nav a{ margin-left:1rem; } }
+  </style>
+</head>
+<body>
+  <div class="site">
+    <header>
+      <div class="header-inner">
+        <div class="brand">
+          <div class="logo">SE</div>
+          <div>
+            <h1>ServerEssentials</h1>
+            <div class="small">Open-source Minecraft essentials</div>
+          </div>
+        </div>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="features.html">Features</a>
+          <a href="install.html">Install</a>
+          <a href="docs.html" class="active">Docs</a>
+          <a href="support.html">Support</a>
+          <a href="about.html">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h2>ServerEssentials Permissions</h2>
+        <p>Search, browse, and copy permissions quickly to configure your server.</p>
+      </section>
+
+      <section class="card">
+        <h3>Search Permissions</h3>
+        <input type="text" id="permissionSearch" placeholder="Type a permission to search..." />
+      </section>
+
+      <section class="card">
+        <h3>Permissions List</h3>
+        <table id="permissionsTable">
+          <thead>
+            <tr>
+              <th>Permission</th>
+              <th>Description</th>
+              <th>Default</th>
+              <th>Copy</th>
+            </tr>
+          </thead>
+          <tbody>
+
+
+          <!-- General Commands -->
+          <tr><td>serveressentials.swap</td><td>Swap location with another player (/swap &lt;player&gt;)</td><td>OP</td><td><button class="copy-btn" data-perm="serveressentials.swap">Copy</button></td></tr>
+          <tr><td>serveressentials.sleep</td><td>Skip night and clear weather (/sleep)</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.sleep">Copy</button></td></tr>
+          <tr><td>serveressentials.magnet</td><td>Toggle item magnet (/magnet)</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.magnet">Copy</button></td></tr>
+          <tr><td>serveressentials.daily</td><td>Open the Daily Rewards GUI (/daily)</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.daily">Copy</button></td></tr>
+          <tr><td>serveressentials.notes</td><td>Add a staff note to a player (/notes &lt;player&gt; &lt;note&gt;)</td><td>OP</td><td><button class="copy-btn" data-perm="serveressentials.notes">Copy</button></td></tr>
+
+          <!-- Lobby -->
+          <tr><td>serveressentials.lobby</td><td>Allows player to teleport to lobby</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.lobby">Copy</button></td></tr>
+          <tr><td>serveressentials.lobby.set</td><td>Allows player to set lobby location</td><td>OP</td><td><button class="copy-btn" data-perm="serveressentials.lobby.set">Copy</button></td></tr>
+          <tr><td>serveressentials.lobby.remove</td><td>Allows player to remove lobby location</td><td>OP</td><td><button class="copy-btn" data-perm="serveressentials.lobby.remove">Copy</button></td></tr>
+          <tr><td>serveressentials.lobby.world</td><td>Allows player to set per-world lobby</td><td>OP</td><td><button class="copy-btn" data-perm="serveressentials.lobby.world">Copy</button></td></tr>
+
+          <!-- Vaults -->
+          <tr><td>serveressentials.vault1</td><td>Access to vault 1</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.vault1">Copy</button></td></tr>
+          <tr><td>serveressentials.vault2</td><td>Access to vault 2</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.vault2">Copy</button></td></tr>
+          <tr><td>serveressentials.vault3</td><td>Access to vault 3</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.vault3">Copy</button></td></tr>
+          <tr><td>serveressentials.vault4</td><td>Access to vault 4</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.vault4">Copy</button></td></tr>
+          <tr><td>serveressentials.vault5</td><td>Access to vault 5</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.vault5">Copy</button></td></tr>
+          <tr><td>serveressentials.vault6</td><td>Access to vault 6</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.vault6">Copy</button></td></tr>
+          <tr><td>serveressentials.vault7</td><td>Access to vault 7</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.vault7">Copy</button></td></tr>
+          <tr><td>serveressentials.vault8</td><td>Access to vault 8</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.vault8">Copy</button></td></tr>
+          <tr><td>serveressentials.vault9</td><td>Access to vault 9</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.vault9">Copy</button></td></tr>
+          <tr><td>serveressentials.vault10</td><td>Access to vault 10</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.vault10">Copy</button></td></tr>
+          <tr><td>serveressentials.eco</td><td>Check or modify a player's balance</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.eco">Copy</button></td></tr>
+          <tr><td>serveressentials.balance</td><td>View your balance</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.balance">Copy</button></td></tr>
+          <tr><td>serveressentials.fuck</td><td>Sends a funny custom message</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.fuck">Copy</button></td></tr>
+          <tr><td>serveressentials.unloadworld</td><td>Unload a world</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.unloadworld">Copy</button></td></tr>
+          <tr><td>serveressentials.session</td><td>Shows session time</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.session">Copy</button></td></tr>
+          <tr><td>serveressentials.lockitem</td><td>Locks item to hotbar slot</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.lockitem">Copy</button></td></tr>
+          <tr><td>serveressentials.iteminfo</td><td>Show info about held item</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.iteminfo">Copy</button></td></tr>
+          <tr><td>serveressentials.tpp</td><td>Teleport player to world or coords</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.tpp">Copy</button></td></tr>
+          <tr><td>serveressentials.pingall</td><td>Ping of all players</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.pingall">Copy</button></td></tr>
+          <tr><td>serveressentials.lockdown</td><td>Toggle server lockdown</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.lockdown">Copy</button></td></tr>
+          <tr><td>serveressentials.loadworld</td><td>Load a world by name</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.loadworld">Copy</button></td></tr>
+          <tr><td>serveressentials.uptime</td><td>Server uptime</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.uptime">Copy</button></td></tr>
+          <tr><td>serveressentials.worldlist</td><td>List world status</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.worldlist">Copy</button></td></tr>
+          <tr><td>serveressentials.balancetop</td><td>View top balances</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.balancetop">Copy</button></td></tr>
+          <tr><td>serveressentials.serveressentials.use</td><td>Main ServerEssentials command</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.serveressentials.use">Copy</button></td></tr>
+          <tr><td>serveressentials.shop</td><td>Open or reload shop</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.shop">Copy</button></td></tr>
+          <tr><td>serveressentials.canon</td><td>Execute canon command</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.canon">Copy</button></td></tr>
+          <tr><td>serveressentials.tree</td><td>Spawn a tree</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.tree">Copy</button></td></tr>
+          <tr><td>serveressentials.rtp</td><td>Random teleport</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.rtp">Copy</button></td></tr>
+          <tr><td>serveressentials.vanish</td><td>Toggle vanish</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.vanish">Copy</button></td></tr>
+          <tr><td>serveressentials.god</td><td>Toggle god mode</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.god">Copy</button></td></tr>
+          <tr><td>serveressentials.invsee</td><td>See another player's inventory</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.invsee">Copy</button></td></tr>
+          <tr><td>serveressentials.invclear</td><td>Clear another player's inventory</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.invclear">Copy</button></td></tr>
+          <tr><td>serveressentials.tp</td><td>Teleport to a player</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.tp">Copy</button></td></tr>
+          <tr><td>serveressentials.se</td><td>Use admin SE command</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.se">Copy</button></td></tr>
+          <tr><td>serveressentials.dashboard.open</td><td>Open the server dashboard</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.dashboard.open">Copy</button></td></tr>
+          <tr><td>serveressentials.powertool</td><td>Use powertool command</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.powertool">Copy</button></td></tr>
+          <tr><td>serveressentials.ah.use</td><td>Use auction house</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.ah.use">Copy</button></td></tr>
+          <tr><td>serveressentials.adminchat</td><td>Access admin chat</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.adminchat">Copy</button></td></tr>
+          <tr><td>serveressentials.homes</td><td>List your homes</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.homes">Copy</button></td></tr>
+          <tr><td>serveressentials.renamehome</td><td>Rename your home</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.renamehome">Copy</button></td></tr>
+          <tr><td>serveressentials.deletehome</td><td>Delete a home</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.deletehome">Copy</button></td></tr>
+          <tr><td>serveressentials.nick</td><td>Set nickname</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.nick">Copy</button></td></tr>
+          <tr><td>serveressentials.nicks.admin</td><td>Manage nicknames</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.nicks.admin">Copy</button></td></tr>
+          <tr><td>serveressentials.rename</td><td>Rename item in hand</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.rename">Copy</button></td></tr>
+          <tr><td>serveressentials.setloreline</td><td>Set item lore line</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.setloreline">Copy</button></td></tr>
+          <tr><td>serveressentials.ping</td><td>Check ping</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.ping">Copy</button></td></tr>
+          <tr><td>serveressentials.lobby</td><td>Lobby management</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.lobby">Copy</button></td></tr>
+          <tr><td>serveressentials.back</td><td>Teleport to last location</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.back">Copy</button></td></tr>
+          <tr><td>serveressentials.heal</td><td>Heal yourself</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.heal">Copy</button></td></tr>
+          <tr><td>serveressentials.feed</td><td>Feed yourself</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.feed">Copy</button></td></tr>
+          <tr><td>serveressentials.ptime</td><td>Set personal time</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.ptime">Copy</button></td></tr>
+          <tr><td>serveressentials.playtime</td><td>Check total playtime</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.playtime">Copy</button></td></tr>
+          <tr><td>serveressentials.playerinfo</td><td>View player info</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.playerinfo">Copy</button></td></tr>
+          <tr><td>serveressentials.warp</td><td>Teleport to a warp</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.warp">Copy</button></td></tr>
+          <tr><td>serveressentials.setwarp</td><td>Set a new warp</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.setwarp">Copy</button></td></tr>
+          <tr><td>serveressentials.delwarp</td><td>Delete an existing warp</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.delwarp">Copy</button></td></tr>
+          <tr><td>serveressentials.renamewarp</td><td>Rename a warp</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.renamewarp">Copy</button></td></tr>
+          <tr><td>serveressentials.closewarp</td><td>Close a warp</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.closewarp">Copy</button></td></tr>
+          <tr><td>serveressentials.reopenwarp</td><td>Reopen a warp</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.reopenwarp">Copy</button></td></tr>
+          <tr><td>serveressentials.deletewarp</td><td>Delete a warp</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.deletewarp">Copy</button></td></tr>
+          <tr><td>serveressentials.disposal</td><td>Open disposal inventory</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.disposal">Copy</button></td></tr>
+          <tr><td>serveressentials.editsign</td><td>Edit a sign</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.editsign">Copy</button></td></tr>
+          <tr><td>serveressentials.setjail</td><td>Set a jail location</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.setjail">Copy</button></td></tr>
+          <tr><td>serveressentials.deljail</td><td>Delete a jail</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.deljail">Copy</button></td></tr>
+          <tr><td>serveressentials.jails</td><td>List all jails</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.jails">Copy</button></td></tr>
+          <tr><td>serveressentials.togglejail</td><td>Toggle jail status</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.togglejail">Copy</button></td></tr>
+          <tr><td>serveressentials.spawner</td><td>Change spawner mob type</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.spawner">Copy</button></td></tr>
+          <tr><td>serveressentials.condense</td><td>Condense items</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.condense">Copy</button></td></tr>
+          <tr><td>serveressentials.msgtoggle</td><td>Toggle messages</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.msgtoggle">Copy</button></td></tr>
+          <tr><td>serveressentials.paytoggle</td><td>Toggle payment receipt</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.paytoggle">Copy</button></td></tr>
+          <tr><td>serveressentials.payconfirmtoggle</td><td>Toggle payment confirmations</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.payconfirmtoggle">Copy</button></td></tr>
+          <tr><td>serveressentials.ignore</td><td>Ignore a player</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.ignore">Copy</button></td></tr>
+          <tr><td>serveressentials.whois</td><td>Get player information</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.whois">Copy</button></td></tr>
+          <tr><td>serveressentials.seen</td><td>Check player last online</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.seen">Copy</button></td></tr>
+          <tr><td>serveressentials.ext</td><td>Extension command</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.ext">Copy</button></td></tr>
+          <tr><td>serveressentials.kittycannon</td><td>Launch a flying cat</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.kittycannon">Copy</button></td></tr>
+          <tr><td>serveressentials.beezooka</td><td>Launch a flying bee</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.beezooka">Copy</button></td></tr>
+          <tr><td>serveressentials.nuke</td><td>Nuke a location</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.nuke">Copy</button></td></tr>
+          <tr><td>serveressentials.fireball</td><td>Shoot a fireball</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.fireball">Copy</button></td></tr>
+          <tr><td>serveressentials.lightning</td><td>Strike lightning</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.lightning">Copy</button></td></tr>
+          <tr><td>serveressentials.thunder</td><td>Summon a lightning effect</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.thunder">Copy</button></td></tr>
+          <tr><td>serveressentials.broadcastworld</td><td>Broadcast to a world</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.broadcastworld">Copy</button></td></tr>
+          <tr><td>serveressentials.book</td><td>Give a book</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.book">Copy</button></td></tr>
+          <tr><td>serveressentials.recipe</td><td>Show a recipe</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.recipe">Copy</button></td></tr>
+          <tr><td>serveressentials.near</td><td>Show nearby players</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.near">Copy</button></td></tr>
+          <tr><td>serveressentials.top</td><td>Teleport to top block</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.top">Copy</button></td></tr>
+          <tr><td>serveressentials.warps</td><td>List all available warps</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.warps">Copy</button></td></tr>
+          <tr><td>serveressentials.bottom</td><td>Teleport to lowest block</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.bottom">Copy</button></td></tr>
+          <tr><td>serveressentials.tpoffline</td><td>Teleport to offline player’s location</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.tpoffline">Copy</button></td></tr>
+          <tr><td>serveressentials.hat</td><td>Wear item in hand as hat</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.hat">Copy</button></td></tr>
+          <tr><td>serveressentials.realname</td><td>Get player’s real name</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.realname">Copy</button></td></tr>
+          <tr><td>serveressentials.pay</td><td>Pay another player</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.pay">Copy</button></td></tr>
+          <tr><td>serveressentials.freeze</td><td>Freeze a player</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.freeze">Copy</button></td></tr>
+          <tr><td>serveressentials.unfreeze</td><td>Unfreeze a player</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.unfreeze">Copy</button></td></tr>
+          <tr><td>serveressentials.world</td><td>See what world you're in</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.world">Copy</button></td></tr>
+          <tr><td>serveressentials.compass</td><td>Open compass via command</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.compass">Copy</button></td></tr>
+          <tr><td>serveressentials.break</td><td>Break a block via command</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.break">Copy</button></td></tr>
+          <tr><td>serveressentials.alts</td><td>View alternate accounts</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.alts">Copy</button></td></tr>
+          <tr><td>serveressentials.reboot</td><td>Reboot the server</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.reboot">Copy</button></td></tr>
+          <tr><td>serveressentials.reply</td><td>Reply to private message</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.reply">Copy</button></td></tr>
+          <tr><td>serveressentials.glow</td><td>Toggle glowing effect</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.glow">Copy</button></td></tr>
+          <tr><td>serveressentials.track</td><td>Track a player</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.track">Copy</button></td></tr>
+          <tr><td>serveressentials.burn</td><td>Burn a player</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.burn">Copy</button></td></tr>
+          <tr><td>serveressentials.celebrate</td><td>Launch a firework</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.celebrate">Copy</button></td></tr>
+          <tr><td>serveressentials.stafflist</td><td>List online staff</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.stafflist">Copy</button></td></tr>
+          <tr><td>serveressentials.coinflip</td><td>Coin flip gamble</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.coinflip">Copy</button></td></tr>
+          <tr><td>serveressentials.report.use</td><td>Submit a report</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.report.use">Copy</button></td></tr>
+          <tr><td>serveressentials.report.admin</td><td>Manage player reports</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.report.admin">Copy</button></td></tr>
+          <tr><td>serveressentials.kit</td><td>Use or reload kits</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.kit">Copy</button></td></tr>
+          <tr><td>serveressentials.pw.gui</td><td>Access player warps</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.pw.gui">Copy</button></td></tr>
+          <tr><td>serveressentials.pv</td><td>Access player vaults</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.pv">Copy</button></td></tr>
+          <tr><td>serveressentials.kills</td><td>View player kills</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.kills">Copy</button></td></tr>
+          <tr><td>serveressentials.death</td><td>View player deaths</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.death">Copy</button></td></tr>
+          <tr><td>serveressentials.ban.use</td><td>Ban a player</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.ban.use">Copy</button></td></tr>
+          <tr><td>serveressentials.unban</td><td>Unban a player</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.unban">Copy</button></td></tr>
+          <tr><td>serveressentials.banlist</td><td>View all bans</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.banlist">Copy</button></td></tr>
+          <tr><td>serveressentials.motd</td><td>Set server MOTD</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.motd">Copy</button></td></tr>
+          <tr><td>serveressentials.broadcast</td><td>Broadcast message</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.broadcast">Copy</button></td></tr>
+          <tr><td>serveressentials.scoreboard</td><td>Scoreboard control</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.scoreboard">Copy</button></td></tr>
+          <tr><td>serveressentials.serverinfo</td><td>Server info</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.serverinfo">Copy</button></td></tr>
+          <tr><td>serveressentials.clearchat</td><td>Clear chat</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.clearchat">Copy</button></td></tr>
+          <tr><td>serveressentials.rules</td><td>View or reload rules</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.rules">Copy</button></td></tr>
+          <tr><td>serveressentials.fly</td><td>Toggle fly</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.fly">Copy</button></td></tr>
+          <tr><td>serveressentials.speed</td><td>Set walk/fly speed</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.speed">Copy</button></td></tr>
+          <tr><td>serveressentials.fakeop</td><td>Pretend to OP a player</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.fakeop">Copy</button></td></tr>
+
+
+          <!-- Kits -->
+          <tr><td>serveressentials.kit1</td><td>Allows use of Kit 1</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.kit1">Copy</button></td></tr>
+          <tr><td>serveressentials.kit2</td><td>Allows use of Kit 2</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.kit2">Copy</button></td></tr>
+          <tr><td>serveressentials.kit3</td><td>Allows use of Kit 3</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.kit3">Copy</button></td></tr>
+          <tr><td>serveressentials.kit4</td><td>Allows use of Kit 4</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.kit4">Copy</button></td></tr>
+          <tr><td>serveressentials.kit5</td><td>Allows use of Kit 5</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.kit5">Copy</button></td></tr>
+          <tr><td>serveressentials.kit6</td><td>Allows use of Kit 6</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.kit6">Copy</button></td></tr>
+          <tr><td>serveressentials.kit7</td><td>Allows use of Kit 7</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.kit7">Copy</button></td></tr>
+          <tr><td>serveressentials.kit8</td><td>Allows use of Kit 8</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.kit8">Copy</button></td></tr>
+          <tr><td>serveressentials.kit9</td><td>Allows use of Kit 9</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.kit9">Copy</button></td></tr>
+          <tr><td>serveressentials.kit10</td><td>Allows use of Kit 10</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.kit10">Copy</button></td></tr>
+
+          <!-- Home Permissions -->
+          <tr><td>serveressentials.sethome</td><td>Allows opening the homes GUI</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.sethome">Copy</button></td></tr>
+          <tr><td>serveressentials.sethome.1</td><td>Allows setting only Home 1</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.sethome.1">Copy</button></td></tr>
+          <tr><td>serveressentials.sethome.2</td><td>Allows setting only Home 2</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.sethome.2">Copy</button></td></tr>
+          <tr><td>serveressentials.sethome.3</td><td>Allows setting only Home 3</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.sethome.3">Copy</button></td></tr>
+          <tr><td>serveressentials.sethome.4</td><td>Allows setting only Home 4</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.sethome.4">Copy</button></td></tr>
+          <tr><td>serveressentials.sethome.5</td><td>Allows setting only Home 5</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.sethome.5">Copy</button></td></tr>
+          <tr><td>serveressentials.sethome.6</td><td>Allows setting only Home 6</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.sethome.6">Copy</button></td></tr>
+          <tr><td>serveressentials.sethome.7</td><td>Allows setting only Home 7</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.sethome.7">Copy</button></td></tr>
+          <tr><td>serveressentials.sethome.8</td><td>Allows setting only Home 8</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.sethome.8">Copy</button></td></tr>
+          <tr><td>serveressentials.sethome.10</td><td>Allows setting 10 homes</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.sethome.10">Copy</button></td></tr>
+          <tr><td>serveressentials.sethome.*</td><td>Allows setting all 8 homes</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.sethome.*">Copy</button></td></tr>
+          <tr><td>serveressentials.removehome</td><td>Allows removing homes via GUI</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.removehome">Copy</button></td></tr>
+          <tr><td>serveressentials.renamehome</td><td>Allows renaming homes via GUI</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.renamehome">Copy</button></td></tr>
+
+          <!-- Weather Permissions -->
+          <tr><td>serveressentials.weather</td><td>Base permission for /weather</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.weather">Copy</button></td></tr>
+          <tr><td>serveressentials.weather.*</td><td>Allows all weather types</td><td>OP</td><td><button class="copy-btn" data-perm="serveressentials.weather.*">Copy</button></td></tr>
+          <tr><td>serveressentials.weather.clear</td><td>Allows setting weather to clear</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.weather.clear">Copy</button></td></tr>
+          <tr><td>serveressentials.weather.rain</td><td>Allows setting weather to rain</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.weather.rain">Copy</button></td></tr>
+          <tr><td>serveressentials.weather.thunderstorm</td><td>Allows setting weather to thunderstorm</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.weather.thunderstorm">Copy</button></td></tr>
+
+          <!-- Spawner -->
+          <tr><td>serveressentials.spawner</td><td>Allows use of /spawner command</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.spawner">Copy</button></td></tr>
+          <tr><td>serveressentials.spawner.*</td><td>Allows setting any spawner type</td><td>OP</td><td><button class="copy-btn" data-perm="serveressentials.spawner.*">Copy</button></td></tr>
+
+          <!-- AFK -->
+          <tr><td>serveressentials.afk</td><td>Allows toggling AFK status with /afk</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.afk">Copy</button></td></tr>
+          <tr><td>serveressentials.afk.auto</td><td>Prevents being set AFK automatically</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.afk.auto">Copy</button></td></tr>
+
+          <!-- Rules -->
+          <tr><td>serveressentials.rules</td><td>Allows viewing the server rules</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.rules">Copy</button></td></tr>
+          <tr><td>serveressentials.rules.reload</td><td>Allows reloading the server rules</td><td>OP</td><td><button class="copy-btn" data-perm="serveressentials.rules.reload">Copy</button></td></tr>
+
+          <!-- Back -->
+          <tr><td>serveressentials.back</td><td>Allows using the /back command</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.back">Copy</button></td></tr>
+          <tr><td>serveressentials.back.last</td><td>Allows teleporting to your last saved location</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.back.last">Copy</button></td></tr>
+          <tr><td>serveressentials.back.lobby</td><td>Allows teleporting to the lobby</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.back.lobby">Copy</button></td></tr>
+          <tr><td>serveressentials.back.death</td><td>Allows teleporting to your last death location</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.back.death">Copy</button></td></tr>
+
+          <!-- Notes -->
+          <tr><td>serveressentials.note</td><td>Base permission for /notes</td><td>OP</td><td><button class="copy-btn" data-perm="serveressentials.note">Copy</button></td></tr>
+          <tr><td>serveressentials.note.read</td><td>Allows reading your notes</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.note.read">Copy</button></td></tr>
+          <tr><td>serveressentials.note.write</td><td>Allows writing/updating your notes</td><td>OP</td><td><button class="copy-btn" data-perm="serveressentials.note.write">Copy</button></td></tr>
+
+          <!-- TPP -->
+          <tr><td>serveressentials.tpp</td><td>Allows using /tpp</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.tpp">Copy</button></td></tr>
+          <tr><td>serveressentials.tpp.*</td><td>Allows using /tpp for all worlds</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.tpp.*">Copy</button></td></tr>
+          <tr><td>serveressentials.tpp.&lt;world&gt;</td><td>Allows teleporting to specific world &lt;world&gt;</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.tpp.&lt;world&gt;">Copy</button></td></tr>
+
+          <!-- ServerEssentials commands -->
+          <tr><td>serveressentials.serveressentials.use</td><td>Allows use of /serveressentials command</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.serveressentials.use">Copy</button></td></tr>
+          <tr><td>serveressentials.serveressentials.version</td><td>Allows access to /serveressentials version</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.serveressentials.version">Copy</button></td></tr>
+          <tr><td>serveressentials.serveressentials.reload</td><td>Allows access to /serveressentials reload</td><td>OP</td><td><button class="copy-btn" data-perm="serveressentials.serveressentials.reload">Copy</button></td></tr>
+          <tr><td>serveressentials.serveressentials.info</td><td>Allows access to /serveressentials info</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.serveressentials.info">Copy</button></td></tr>
+          <tr><td>serveressentials.serveressentials.help</td><td>Allows access to /serveressentials help</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.serveressentials.help">Copy</button></td></tr>
+
+          <!-- PTime -->
+          <tr><td>serveressentials.ptime</td><td>Base permission for /ptime</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.ptime">Copy</button></td></tr>
+          <tr><td>serveressentials.ptime.day</td><td>Allows using /ptime day</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.ptime.day">Copy</button></td></tr>
+          <tr><td>serveressentials.ptime.night</td><td>Allows using /ptime night</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.ptime.night">Copy</button></td></tr>
+          <tr><td>serveressentials.ptime.reset</td><td>Allows using /ptime reset</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.ptime.reset">Copy</button></td></tr>
+
+          <!-- Personal Warps -->
+          <tr><td>serveressentials.pw.gui</td><td>Allows opening the Personal Warps GUI</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.pw.gui">Copy</button></td></tr>
+          <tr><td>serveressentials.pw.create</td><td>Allows creating personal warps</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.pw.create">Copy</button></td></tr>
+          <tr><td>serveressentials.pw.edit</td><td>Allows editing personal warps</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.pw.edit">Copy</button></td></tr>
+          <tr><td>serveressentials.pw.reload</td><td>Allows reloading the warp configuration</td><td>OP</td><td><button class="copy-btn" data-perm="serveressentials.pw.reload">Copy</button></td></tr>
+
+          <!-- Warp -->
+          <tr><td>serveressentials.warp</td><td>Allows the player to use /warp</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.warp">Copy</button></td></tr>
+          <tr><td>serveressentials.setwarp</td><td>Allows the player to set new warps</td><td>OP</td><td><button class="copy-btn" data-perm="serveressentials.setwarp">Copy</button></td></tr>
+          <tr><td>serveressentials.delwarp</td><td>Allows the player to delete warps</td><td>OP</td><td><button class="copy-btn" data-perm="serveressentials.delwarp">Copy</button></td></tr>
+          <tr><td>serveressentials.warps</td><td>Allows the player to list all warps</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.warps">Copy</button></td></tr>
+          <tr><td>serveressentials.delwarp.all</td><td>Allows deleting any warp</td><td>OP</td><td><button class="copy-btn" data-perm="serveressentials.delwarp.all">Copy</button></td></tr>
+
+          <!-- Auction House -->
+          <tr><td>serveressentials.ah.use</td><td>Allows access to the auction system</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.ah.use">Copy</button></td></tr>
+          <tr><td>serveressentials.ah.view</td><td>Allows viewing the auction GUI</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.ah.view">Copy</button></td></tr>
+          <tr><td>serveressentials.ah.my</td><td>Allows viewing your own auctioned items</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.ah.my">Copy</button></td></tr>
+          <tr><td>serveressentials.ah.sell</td><td>Allows selling items on the auction</td><td>True</td><td><button class="copy-btn" data-perm="serveressentials.ah.sell">Copy</button></td></tr>
+
+          </tbody>
+
+
+        </table>
+      </section>
+    </main>
+
+    <footer>
+      © 2025 ServerEssentials — Open source. Built with ❤️
+    </footer>
+  </div>
+
+  <script>
+    // Search functionality
+    const searchInput = document.getElementById('permissionSearch');
+    const table = document.getElementById('permissionsTable').getElementsByTagName('tbody')[0];
+
+    searchInput.addEventListener('input', function() {
+      const filter = this.value.toLowerCase();
+      Array.from(table.rows).forEach(row => {
+        const perm = row.cells[0].textContent.toLowerCase();
+        const desc = row.cells[1].textContent.toLowerCase();
+        row.style.display = perm.includes(filter) || desc.includes(filter) ? '' : 'none';
+      });
+    });
+
+    // Copy to clipboard functionality
+    const copyButtons = document.querySelectorAll('.copy-btn');
+    copyButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const perm = btn.dataset.perm;
+        navigator.clipboard.writeText(perm).then(() => {
+          btn.textContent = 'Copied!';
+          setTimeout(() => btn.textContent = 'Copy', 1500);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
